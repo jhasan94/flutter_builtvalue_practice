@@ -3,7 +3,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter_builtvalue_practice/serializer_with_built_value/serializers.dart';
 
 class DioBuiltValueConverter {
-
   RequestOptions convertRequest(RequestOptions options) {
     if (options != null && options.data != null) {
       options.data = serializers.serializeWith(

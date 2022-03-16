@@ -1,17 +1,15 @@
 import 'package:dio/dio.dart';
 import 'dart:convert' as dart_convert;
+import 'package:flutter_builtvalue_practice/error_handling/failures.dart';
 
-import 'package:flutter_builtvalue_practice/error_handling/base_error.dart';
-import 'package:flutter_builtvalue_practice/error_handling/error_handling.dart';
-
-abstract class DioErrorToDotMobileErrorConverter {
-  BaseError convert(DioError dioError);
+abstract class DioErrorToAppErrorConverter {
+  FailureEntity convert(DioError dioError);
 }
 
 class DioErrorToDotMobileErrorConverterImpl
-    implements DioErrorToDotMobileErrorConverter {
+    implements DioErrorToAppErrorConverter {
   @override
-  BaseError convert(DioError dioError) {
+  FailureEntity convert(DioError dioError) {
     if (dioError is DioError) {
       switch (dioError.type) {
         case DioErrorType.response:
@@ -30,15 +28,15 @@ class DioErrorToDotMobileErrorConverterImpl
                 );
             }
           } else {
-            return  UnexpectedError();
+            return UnexpectedError();
           }
           break;
 
         default:
-          return  UnexpectedError();
+          return UnexpectedError();
       }
     } else {
-      return  UnexpectedError();
+      return UnexpectedError();
     }
   }
 }

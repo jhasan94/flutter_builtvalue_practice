@@ -8,6 +8,7 @@ part of serializers;
 
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(BuiltUser.serializer)
+      ..add(PendingVisitListResponse.serializer)
       ..add(RootDto.serializer)
       ..add(SubDomain.serializer)
       ..addBuilderFactory(
