@@ -62,12 +62,12 @@ class DioErrorToApiErrorConverterImpl
       errorMessage = value["message"] as String;
     }
     return BaseError(
-      mapBonitoErrorCodeToDotMobileErrorCode(errorCode),
+      mapServerErrorCodeToApiErrorCode(errorCode),
       errorMessage ,
     );
   }
   //ErrorCode.notFound;
-  int mapBonitoErrorCodeToDotMobileErrorCode(int errorCode) {
+  int mapServerErrorCodeToApiErrorCode(int errorCode) {
     switch (errorCode) {
       case 101:
         return ErrorCode.notFound;

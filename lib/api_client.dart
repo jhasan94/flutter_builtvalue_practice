@@ -1,7 +1,6 @@
 import 'package:built_collection/src/list.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_builtvalue_practice/error_handling/failures.dart';
 import 'package:flutter_builtvalue_practice/models/pending_visit_list_response.dart';
 import 'package:flutter_builtvalue_practice/models/sub_domain.dart';
 import 'package:flutter_builtvalue_practice/sub_domain_repository.dart';
