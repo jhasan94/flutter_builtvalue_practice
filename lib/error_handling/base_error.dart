@@ -1,4 +1,6 @@
+class BaseError {
+  final int? errorCode;
+  final String? message;
 
-// class BaseError{
-//
-// }
+  BaseError(this.errorCode, [this.message = "message"]);
+}

@@ -14,24 +14,24 @@ class DioInterceptor extends InterceptorsWrapper {
     super.onRequest(options, handler);
   }
 
-  @override
-  Future onError(DioError err, ErrorInterceptorHandler handler) async {
-    switch (err.type) {
-      case DioErrorType.other:
-        DefaultError(err.message);
-        break;
-      case DioErrorType.response:
-        switch (err.response?.statusCode) {
-          case 404:
-            NotFound(err.message);
-            break;
-          default:
-            var responseCode = err.response?.statusCode;
-            DefaultError(
-              "SOme other error, status code: $responseCode",
-            );
-        }
-    }
-    super.onError(err, handler);
-  }
+  // @override
+  // Future onError(DioError err, ErrorInterceptorHandler handler) async {
+  //   switch (err.type) {
+  //     case DioErrorType.other:
+  //       DefaultError(err.message);
+  //       break;
+  //     case DioErrorType.response:
+  //       switch (err.response?.statusCode) {
+  //         case 404:
+  //           NotFound(err.message);
+  //           break;
+  //         default:
+  //           var responseCode = err.response?.statusCode;
+  //           DefaultError(
+  //             "SOme other error, status code: $responseCode",
+  //           );
+  //       }
+  //   }
+  //   super.onError(err, handler);
+  // }
 }

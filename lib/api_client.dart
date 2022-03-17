@@ -6,6 +6,7 @@ import 'package:flutter_builtvalue_practice/models/pending_visit_list_response.d
 import 'package:flutter_builtvalue_practice/models/sub_domain.dart';
 import 'package:flutter_builtvalue_practice/sub_domain_repository.dart';
 import 'built_value/dio/dio_network_call_executor.dart';
+import 'error_handling/base_error.dart';
 
 class SubDomainRepositoryImpl implements SubDomainRepository {
   final DioNetworkCallExecutor dioNetworkCallExecutor;
@@ -26,13 +27,13 @@ class SubDomainRepositoryImpl implements SubDomainRepository {
   });
 
   @override
-  Future<Either<FailureEntity, SubDomain>> subDomainMatch(
+  Future<Either<BaseError, SubDomain>> subDomainMatch(
       String subDomainName) async {
     var result = await dioNetworkCallExecutor.execute<SubDomain, SubDomain>(
       options: RequestOptions(
         method: 'GET',
         headers: headers,
-        queryParameters: {"domainNakme": subDomainName},
+        queryParameters: {"domainName": subDomainName},
         path: piHrBasePath + SubDomainRepositoryImpl.getSubDomain,
       ),
     );
@@ -41,7 +42,7 @@ class SubDomainRepositoryImpl implements SubDomainRepository {
   }
 
   @override
-  Future<Either<FailureEntity, List<PendingVisitListResponse>>>
+  Future<Either<BaseError, List<PendingVisitListResponse>>>
       fetchPendingVisitList() async {
     var result1 = await dioNetworkCallExecutor
         .execute<BuiltList<PendingVisitListResponse>, PendingVisitListResponse>(

@@ -1,5 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_builtvalue_practice/built_value/dio/dio_error_to_api_error_converter.dart';
+import 'package:flutter_builtvalue_practice/error_handling/base_error.dart';
 import 'package:flutter_builtvalue_practice/error_handling/failures.dart';
 import 'dio_built_value_converter.dart';
 import 'dio_error_to_app_error_converter.dart';
@@ -7,14 +9,14 @@ import 'dio_error_to_app_error_converter.dart';
 class DioNetworkCallExecutor {
   Dio dio;
   final DioBuiltValueConverter dioBuiltValueConverter;
-  final DioErrorToAppErrorConverter dioErrorToDotMobileErrorConverter;
+  final DioErrorToApiErrorConverter dioErrorToApiErrorConverter;
 
   DioNetworkCallExecutor(
       {required this.dio,
       required this.dioBuiltValueConverter,
-      required this.dioErrorToDotMobileErrorConverter});
+      required this.dioErrorToApiErrorConverter});
 
-  Future<Either<FailureEntity, ReturnType>>
+  Future<Either<BaseError, ReturnType>>
       execute<ReturnType, SingleItemType>({
     required RequestOptions options,
   }) async {
@@ -29,9 +31,7 @@ class DioNetworkCallExecutor {
           .convertResponse<ReturnType, SingleItemType>(_result);
       return Right(result.data!);
     } on DioError catch (e) {
-      return Left(dioErrorToDotMobileErrorConverter.convert(e));
-    } catch (e) {
-      return Left(DefaultError(e.toString()));
+      return Left(dioErrorToApiErrorConverter.convert(e));
     }
   }
 }

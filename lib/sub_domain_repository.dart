@@ -6,6 +6,6 @@ import 'models/sub_domain.dart';
 import 'package:built_collection/built_collection.dart';
 
 abstract class SubDomainRepository {
-  Future<Either<FailureEntity, SubDomain>> subDomainMatch(String subDomainName);
-  Future<Either<FailureEntity, List<PendingVisitListResponse>>> fetchPendingVisitList();
+  Future<Either<BaseError, SubDomain>> subDomainMatch(String subDomainName);
+  Future<Either<BaseError, List<PendingVisitListResponse>>> fetchPendingVisitList();
 }
