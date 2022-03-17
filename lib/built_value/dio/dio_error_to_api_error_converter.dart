@@ -3,6 +3,7 @@ import 'package:flutter_builtvalue_practice/error_handling/base_error.dart';
 import 'dart:convert' as dart_convert;
 
 import 'package:flutter_builtvalue_practice/error_handling/error_code.dart';
+import 'package:injectable/injectable.dart';
 
 abstract class DioErrorToApiErrorConverter {
   BaseError convert(DioError dioError);

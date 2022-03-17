@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_builtvalue_practice/injection.dart';
 
 import 'code_runner.dart';
+import 'getIt.dart';
 
-void main() => runApp(const MyApp());
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await configureDependencies();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
