@@ -5,7 +5,7 @@ import 'package:flutter_builtvalue_practice/error_handling/base_error.dart';
 import 'package:injectable/injectable.dart';
 import 'dio_built_value_converter.dart';
 
-
+@Injectable()
 class DioNetworkCallExecutor {
   Dio dio;
   final DioBuiltValueConverter dioBuiltValueConverter;
@@ -34,4 +34,9 @@ class DioNetworkCallExecutor {
       return Left(dioErrorToApiErrorConverter.convert(e));
     }
   }
+}
+@module
+abstract class RegisterModule {
+  @preResolve
+  Future<Dio> get dio async=> Dio();
 }

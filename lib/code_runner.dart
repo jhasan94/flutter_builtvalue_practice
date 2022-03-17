@@ -23,7 +23,7 @@ class CodeRunner {
             dioErrorToApiErrorConverter:
                 DioErrorToApiErrorConverterImpl()));
 
-    final temp = await getIt<SubDomainRepositoryImpl>().subDomainMatch("viva");
+    final temp = await sl<SubDomainRepositoryImpl>().subDomainMatch("viva");
     temp.fold(
         (failure) {
           print(failure.errorCode);
@@ -35,21 +35,5 @@ class CodeRunner {
           return subDomain;
         });
     print("type : " + temp.runtimeType.toString());
-
-    // var user = BuiltUser((b) => b
-    // ..userAge = 20
-    //   ..userName = "jahid"
-    //   ..userFriends.addAll(['belal','abir'])
-    //  );
-    //
-    // print(user);
-    //
-    //
-    // final userJson = user.toJson();
-    // print(userJson);
-    //
-    // final userFromJson =
-    //     BuiltUser.fromJson(userJson)?.rebuild((b) => b..userAge = 2000);
-    // print(userFromJson);
   }
 }

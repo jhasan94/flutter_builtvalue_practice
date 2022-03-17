@@ -8,7 +8,7 @@ import 'package:injectable/injectable.dart';
 abstract class DioErrorToApiErrorConverter {
   BaseError convert(DioError dioError);
 }
-
+@Injectable(as: DioErrorToApiErrorConverter)
 class DioErrorToApiErrorConverterImpl
     implements DioErrorToApiErrorConverter {
   @override

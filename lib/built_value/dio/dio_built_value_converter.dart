@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_builtvalue_practice/serializer_with_built_value/serializers.dart';
 import 'package:injectable/injectable.dart';
 
-
+@injectable
 class DioBuiltValueConverter {
   RequestOptions convertRequest(RequestOptions options) {
     if (options != null && options.data != null) {
