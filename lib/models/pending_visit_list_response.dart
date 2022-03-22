@@ -44,10 +44,6 @@ abstract class PendingVisitListResponse
   int get applicationId;
   @BuiltValueField(wireName: 'ApproverId')
   int get approverId;
-  @BuiltValueField(wireName: 'ApplyDateString')
-  String get applyDateString;
-  @BuiltValueField(wireName: 'VisitFromString')
-  String get visitFromString;
   @BuiltValueField(wireName: 'VisitToString')
   String get visitToString;
   @BuiltValueField(wireName: 'EmployeeName')
@@ -66,20 +62,6 @@ abstract class PendingVisitListResponse
   String get divisionName;
   @BuiltValueField(wireName: 'DepartmentName')
   String get departmentName;
-  @BuiltValueField(wireName: 'NotUpdatable')
-  bool get notUpdatable;
-  @BuiltValueField(wireName: 'CurrentApplicationState')
-  int get currentApplicationState;
-  @BuiltValueField(wireName: 'ApplicationStatus')
-  String? get applicationStatus;
-  @BuiltValueField(wireName: 'CD')
-  String get cD;
-  @BuiltValueField(wireName: 'MD')
-  String get mD;
-  @BuiltValueField(wireName: 'CB')
-  int get cB;
-  @BuiltValueField(wireName: 'MB')
-  int get mB;
   @BuiltValueField(wireName: 'Rows')
   int get rows;
   @BuiltValueField(wireName: 'MessageType')

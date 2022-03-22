@@ -63,12 +63,6 @@ class _$PendingVisitListResponseSerializer
       'ApproverId',
       serializers.serialize(object.approverId,
           specifiedType: const FullType(int)),
-      'ApplyDateString',
-      serializers.serialize(object.applyDateString,
-          specifiedType: const FullType(String)),
-      'VisitFromString',
-      serializers.serialize(object.visitFromString,
-          specifiedType: const FullType(String)),
       'VisitToString',
       serializers.serialize(object.visitToString,
           specifiedType: const FullType(String)),
@@ -96,20 +90,6 @@ class _$PendingVisitListResponseSerializer
       'DepartmentName',
       serializers.serialize(object.departmentName,
           specifiedType: const FullType(String)),
-      'NotUpdatable',
-      serializers.serialize(object.notUpdatable,
-          specifiedType: const FullType(bool)),
-      'CurrentApplicationState',
-      serializers.serialize(object.currentApplicationState,
-          specifiedType: const FullType(int)),
-      'CD',
-      serializers.serialize(object.cD, specifiedType: const FullType(String)),
-      'MD',
-      serializers.serialize(object.mD, specifiedType: const FullType(String)),
-      'CB',
-      serializers.serialize(object.cB, specifiedType: const FullType(int)),
-      'MB',
-      serializers.serialize(object.mB, specifiedType: const FullType(int)),
       'Rows',
       serializers.serialize(object.rows, specifiedType: const FullType(int)),
       'MessageType',
@@ -117,13 +97,6 @@ class _$PendingVisitListResponseSerializer
           specifiedType: const FullType(int)),
     ];
     Object? value;
-    value = object.applicationStatus;
-    if (value != null) {
-      result
-        ..add('ApplicationStatus')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.messageString;
     if (value != null) {
       result
@@ -205,14 +178,6 @@ class _$PendingVisitListResponseSerializer
           result.approverId = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'ApplyDateString':
-          result.applyDateString = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'VisitFromString':
-          result.visitFromString = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
         case 'VisitToString':
           result.visitToString = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
@@ -248,34 +213,6 @@ class _$PendingVisitListResponseSerializer
         case 'DepartmentName':
           result.departmentName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
-          break;
-        case 'NotUpdatable':
-          result.notUpdatable = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool;
-          break;
-        case 'CurrentApplicationState':
-          result.currentApplicationState = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
-          break;
-        case 'ApplicationStatus':
-          result.applicationStatus = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'CD':
-          result.cD = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'MD':
-          result.mD = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'CB':
-          result.cB = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
-          break;
-        case 'MB':
-          result.mB = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
           break;
         case 'Rows':
           result.rows = serializers.deserialize(value,
@@ -328,10 +265,6 @@ class _$PendingVisitListResponse extends PendingVisitListResponse {
   @override
   final int approverId;
   @override
-  final String applyDateString;
-  @override
-  final String visitFromString;
-  @override
   final String visitToString;
   @override
   final String employeeName;
@@ -349,20 +282,6 @@ class _$PendingVisitListResponse extends PendingVisitListResponse {
   final String divisionName;
   @override
   final String departmentName;
-  @override
-  final bool notUpdatable;
-  @override
-  final int currentApplicationState;
-  @override
-  final String? applicationStatus;
-  @override
-  final String cD;
-  @override
-  final String mD;
-  @override
-  final int cB;
-  @override
-  final int mB;
   @override
   final int rows;
   @override
@@ -390,8 +309,6 @@ class _$PendingVisitListResponse extends PendingVisitListResponse {
       required this.visitStatus,
       required this.applicationId,
       required this.approverId,
-      required this.applyDateString,
-      required this.visitFromString,
       required this.visitToString,
       required this.employeeName,
       required this.employeeCode,
@@ -401,13 +318,6 @@ class _$PendingVisitListResponse extends PendingVisitListResponse {
       required this.branchName,
       required this.divisionName,
       required this.departmentName,
-      required this.notUpdatable,
-      required this.currentApplicationState,
-      this.applicationStatus,
-      required this.cD,
-      required this.mD,
-      required this.cB,
-      required this.mB,
       required this.rows,
       required this.messageType,
       this.messageString,
@@ -440,10 +350,6 @@ class _$PendingVisitListResponse extends PendingVisitListResponse {
     BuiltValueNullFieldError.checkNotNull(
         approverId, 'PendingVisitListResponse', 'approverId');
     BuiltValueNullFieldError.checkNotNull(
-        applyDateString, 'PendingVisitListResponse', 'applyDateString');
-    BuiltValueNullFieldError.checkNotNull(
-        visitFromString, 'PendingVisitListResponse', 'visitFromString');
-    BuiltValueNullFieldError.checkNotNull(
         visitToString, 'PendingVisitListResponse', 'visitToString');
     BuiltValueNullFieldError.checkNotNull(
         employeeName, 'PendingVisitListResponse', 'employeeName');
@@ -461,14 +367,6 @@ class _$PendingVisitListResponse extends PendingVisitListResponse {
         divisionName, 'PendingVisitListResponse', 'divisionName');
     BuiltValueNullFieldError.checkNotNull(
         departmentName, 'PendingVisitListResponse', 'departmentName');
-    BuiltValueNullFieldError.checkNotNull(
-        notUpdatable, 'PendingVisitListResponse', 'notUpdatable');
-    BuiltValueNullFieldError.checkNotNull(currentApplicationState,
-        'PendingVisitListResponse', 'currentApplicationState');
-    BuiltValueNullFieldError.checkNotNull(cD, 'PendingVisitListResponse', 'cD');
-    BuiltValueNullFieldError.checkNotNull(mD, 'PendingVisitListResponse', 'mD');
-    BuiltValueNullFieldError.checkNotNull(cB, 'PendingVisitListResponse', 'cB');
-    BuiltValueNullFieldError.checkNotNull(mB, 'PendingVisitListResponse', 'mB');
     BuiltValueNullFieldError.checkNotNull(
         rows, 'PendingVisitListResponse', 'rows');
     BuiltValueNullFieldError.checkNotNull(
@@ -501,8 +399,6 @@ class _$PendingVisitListResponse extends PendingVisitListResponse {
         visitStatus == other.visitStatus &&
         applicationId == other.applicationId &&
         approverId == other.approverId &&
-        applyDateString == other.applyDateString &&
-        visitFromString == other.visitFromString &&
         visitToString == other.visitToString &&
         employeeName == other.employeeName &&
         employeeCode == other.employeeCode &&
@@ -512,13 +408,6 @@ class _$PendingVisitListResponse extends PendingVisitListResponse {
         branchName == other.branchName &&
         divisionName == other.divisionName &&
         departmentName == other.departmentName &&
-        notUpdatable == other.notUpdatable &&
-        currentApplicationState == other.currentApplicationState &&
-        applicationStatus == other.applicationStatus &&
-        cD == other.cD &&
-        mD == other.mD &&
-        cB == other.cB &&
-        mB == other.mB &&
         rows == other.rows &&
         messageType == other.messageType &&
         messageString == other.messageString &&
@@ -545,22 +434,22 @@ class _$PendingVisitListResponse extends PendingVisitListResponse {
                                                                 $jc(
                                                                     $jc(
                                                                         $jc(
-                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, visitApplicationId.hashCode), companyId.hashCode), employeeId.hashCode), applicationSerial.hashCode), applyDate.hashCode), visitFrom.hashCode), visitTo.hashCode), notes.hashCode), isApplicationApproved.hashCode), totalVisitDays.hashCode), visitStatus.hashCode), applicationId.hashCode), approverId.hashCode), applyDateString.hashCode), visitFromString.hashCode), visitToString.hashCode),
-                                                                                employeeName.hashCode),
-                                                                            employeeCode.hashCode),
-                                                                        joinDate.hashCode),
-                                                                    jobStatus.hashCode),
-                                                                designation.hashCode),
-                                                            branchName.hashCode),
-                                                        divisionName.hashCode),
-                                                    departmentName.hashCode),
-                                                notUpdatable.hashCode),
-                                            currentApplicationState.hashCode),
-                                        applicationStatus.hashCode),
-                                    cD.hashCode),
-                                mD.hashCode),
-                            cB.hashCode),
-                        mB.hashCode),
+                                                                            $jc($jc($jc($jc($jc($jc($jc($jc(0, visitApplicationId.hashCode), companyId.hashCode), employeeId.hashCode), applicationSerial.hashCode), applyDate.hashCode), visitFrom.hashCode), visitTo.hashCode),
+                                                                                notes.hashCode),
+                                                                            isApplicationApproved.hashCode),
+                                                                        totalVisitDays.hashCode),
+                                                                    visitStatus.hashCode),
+                                                                applicationId.hashCode),
+                                                            approverId.hashCode),
+                                                        visitToString.hashCode),
+                                                    employeeName.hashCode),
+                                                employeeCode.hashCode),
+                                            joinDate.hashCode),
+                                        jobStatus.hashCode),
+                                    designation.hashCode),
+                                branchName.hashCode),
+                            divisionName.hashCode),
+                        departmentName.hashCode),
                     rows.hashCode),
                 messageType.hashCode),
             messageString.hashCode),
@@ -583,8 +472,6 @@ class _$PendingVisitListResponse extends PendingVisitListResponse {
           ..add('visitStatus', visitStatus)
           ..add('applicationId', applicationId)
           ..add('approverId', approverId)
-          ..add('applyDateString', applyDateString)
-          ..add('visitFromString', visitFromString)
           ..add('visitToString', visitToString)
           ..add('employeeName', employeeName)
           ..add('employeeCode', employeeCode)
@@ -594,13 +481,6 @@ class _$PendingVisitListResponse extends PendingVisitListResponse {
           ..add('branchName', branchName)
           ..add('divisionName', divisionName)
           ..add('departmentName', departmentName)
-          ..add('notUpdatable', notUpdatable)
-          ..add('currentApplicationState', currentApplicationState)
-          ..add('applicationStatus', applicationStatus)
-          ..add('cD', cD)
-          ..add('mD', mD)
-          ..add('cB', cB)
-          ..add('mB', mB)
           ..add('rows', rows)
           ..add('messageType', messageType)
           ..add('messageString', messageString)
@@ -671,16 +551,6 @@ class PendingVisitListResponseBuilder
   int? get approverId => _$this._approverId;
   set approverId(int? approverId) => _$this._approverId = approverId;
 
-  String? _applyDateString;
-  String? get applyDateString => _$this._applyDateString;
-  set applyDateString(String? applyDateString) =>
-      _$this._applyDateString = applyDateString;
-
-  String? _visitFromString;
-  String? get visitFromString => _$this._visitFromString;
-  set visitFromString(String? visitFromString) =>
-      _$this._visitFromString = visitFromString;
-
   String? _visitToString;
   String? get visitToString => _$this._visitToString;
   set visitToString(String? visitToString) =>
@@ -719,36 +589,6 @@ class PendingVisitListResponseBuilder
   set departmentName(String? departmentName) =>
       _$this._departmentName = departmentName;
 
-  bool? _notUpdatable;
-  bool? get notUpdatable => _$this._notUpdatable;
-  set notUpdatable(bool? notUpdatable) => _$this._notUpdatable = notUpdatable;
-
-  int? _currentApplicationState;
-  int? get currentApplicationState => _$this._currentApplicationState;
-  set currentApplicationState(int? currentApplicationState) =>
-      _$this._currentApplicationState = currentApplicationState;
-
-  String? _applicationStatus;
-  String? get applicationStatus => _$this._applicationStatus;
-  set applicationStatus(String? applicationStatus) =>
-      _$this._applicationStatus = applicationStatus;
-
-  String? _cD;
-  String? get cD => _$this._cD;
-  set cD(String? cD) => _$this._cD = cD;
-
-  String? _mD;
-  String? get mD => _$this._mD;
-  set mD(String? mD) => _$this._mD = mD;
-
-  int? _cB;
-  int? get cB => _$this._cB;
-  set cB(int? cB) => _$this._cB = cB;
-
-  int? _mB;
-  int? get mB => _$this._mB;
-  set mB(int? mB) => _$this._mB = mB;
-
   int? _rows;
   int? get rows => _$this._rows;
   set rows(int? rows) => _$this._rows = rows;
@@ -785,8 +625,6 @@ class PendingVisitListResponseBuilder
       _visitStatus = $v.visitStatus;
       _applicationId = $v.applicationId;
       _approverId = $v.approverId;
-      _applyDateString = $v.applyDateString;
-      _visitFromString = $v.visitFromString;
       _visitToString = $v.visitToString;
       _employeeName = $v.employeeName;
       _employeeCode = $v.employeeCode;
@@ -796,13 +634,6 @@ class PendingVisitListResponseBuilder
       _branchName = $v.branchName;
       _divisionName = $v.divisionName;
       _departmentName = $v.departmentName;
-      _notUpdatable = $v.notUpdatable;
-      _currentApplicationState = $v.currentApplicationState;
-      _applicationStatus = $v.applicationStatus;
-      _cD = $v.cD;
-      _mD = $v.mD;
-      _cB = $v.cB;
-      _mB = $v.mB;
       _rows = $v.rows;
       _messageType = $v.messageType;
       _messageString = $v.messageString;
@@ -847,8 +678,6 @@ class PendingVisitListResponseBuilder
             visitStatus: BuiltValueNullFieldError.checkNotNull(visitStatus, 'PendingVisitListResponse', 'visitStatus'),
             applicationId: BuiltValueNullFieldError.checkNotNull(applicationId, 'PendingVisitListResponse', 'applicationId'),
             approverId: BuiltValueNullFieldError.checkNotNull(approverId, 'PendingVisitListResponse', 'approverId'),
-            applyDateString: BuiltValueNullFieldError.checkNotNull(applyDateString, 'PendingVisitListResponse', 'applyDateString'),
-            visitFromString: BuiltValueNullFieldError.checkNotNull(visitFromString, 'PendingVisitListResponse', 'visitFromString'),
             visitToString: BuiltValueNullFieldError.checkNotNull(visitToString, 'PendingVisitListResponse', 'visitToString'),
             employeeName: BuiltValueNullFieldError.checkNotNull(employeeName, 'PendingVisitListResponse', 'employeeName'),
             employeeCode: BuiltValueNullFieldError.checkNotNull(employeeCode, 'PendingVisitListResponse', 'employeeCode'),
@@ -858,13 +687,6 @@ class PendingVisitListResponseBuilder
             branchName: BuiltValueNullFieldError.checkNotNull(branchName, 'PendingVisitListResponse', 'branchName'),
             divisionName: BuiltValueNullFieldError.checkNotNull(divisionName, 'PendingVisitListResponse', 'divisionName'),
             departmentName: BuiltValueNullFieldError.checkNotNull(departmentName, 'PendingVisitListResponse', 'departmentName'),
-            notUpdatable: BuiltValueNullFieldError.checkNotNull(notUpdatable, 'PendingVisitListResponse', 'notUpdatable'),
-            currentApplicationState: BuiltValueNullFieldError.checkNotNull(currentApplicationState, 'PendingVisitListResponse', 'currentApplicationState'),
-            applicationStatus: applicationStatus,
-            cD: BuiltValueNullFieldError.checkNotNull(cD, 'PendingVisitListResponse', 'cD'),
-            mD: BuiltValueNullFieldError.checkNotNull(mD, 'PendingVisitListResponse', 'mD'),
-            cB: BuiltValueNullFieldError.checkNotNull(cB, 'PendingVisitListResponse', 'cB'),
-            mB: BuiltValueNullFieldError.checkNotNull(mB, 'PendingVisitListResponse', 'mB'),
             rows: BuiltValueNullFieldError.checkNotNull(rows, 'PendingVisitListResponse', 'rows'),
             messageType: BuiltValueNullFieldError.checkNotNull(messageType, 'PendingVisitListResponse', 'messageType'),
             messageString: messageString,

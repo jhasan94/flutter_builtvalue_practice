@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_builtvalue_practice/injection.dart';
-
 import 'code_runner.dart';
 import 'getIt.dart';
+import 'injection.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-   await configureDependencies();
+  configureDependencies();
   runApp(const MyApp());
 }
 

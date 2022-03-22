@@ -3,12 +3,13 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_builtvalue_practice/models/pending_visit_list_response.dart';
 import 'package:flutter_builtvalue_practice/models/sub_domain.dart';
-import 'package:flutter_builtvalue_practice/sub_domain_repository.dart';
+import 'package:flutter_builtvalue_practice/repository/sub_domain_repository.dart';
 import 'package:injectable/injectable.dart';
-import 'built_value/dio/dio_network_call_executor.dart';
-import 'error_handling/base_error.dart';
+import '../built_value/dio/dio_network_call_executor.dart';
+import '../error_handling/base_error.dart';
 
-@Injectable(as: SubDomainRepository)
+
+@Injectable()
 class SubDomainRepositoryImpl implements SubDomainRepository {
   final DioNetworkCallExecutor dioNetworkCallExecutor;
   static const getSubDomain = '/api/PIEERPApi/MatchSubDomain';
@@ -38,7 +39,6 @@ class SubDomainRepositoryImpl implements SubDomainRepository {
         path: piHrBasePath + SubDomainRepositoryImpl.getSubDomain,
       ),
     );
-    result.fold((l) => print("failed"), (r) => print("success"));
     return result;
   }
 

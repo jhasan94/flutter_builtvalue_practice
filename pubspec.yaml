@@ -30,12 +30,12 @@ dependencies:
   flutter:
     sdk: flutter
   built_value: ^8.1.4
-  dio:
+  dio: ^4.0.4
   freezed:
   freezed_annotation:
   equatable:
   dartz:
-  injectable:
+  injectable: ^1.5.3
 
 
   # The following adds the Cupertino Icons font to your application.

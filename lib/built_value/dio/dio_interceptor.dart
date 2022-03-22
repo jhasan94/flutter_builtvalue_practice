@@ -7,7 +7,7 @@ class DioInterceptor extends InterceptorsWrapper {
     print(options);
     options.headers["Accept"] = "application/json;charset=UTF-8";
     options.headers["Content-Type"] = "application/json;charset=UTF-8";
-    options.method = "GET";
+    //options.method = "GET";
 
     //return handler.next(options);
     super.onRequest(options, handler);
